@@ -1,0 +1,25 @@
+# Auto-detect text files, normalize line endings
+* text=auto
+
+# Explicitly mark source code as text
+*.sh      text eol=lf
+*.md      text eol=lf
+*.py      text eol=lf
+*.txt     text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+.gitignore text
+.gitattributes text
+LICENSE   text
+
+# Tensile kernels and ROCm binaries: treat as binary
+*.dat     binary
+*.co      binary
+*.hsaco   binary
+*.so      binary
+*.whl     binary
+
+# Don't show these in GitHub language stats
+*.dat     linguist-vendored
+*.co      linguist-vendored
+*.hsaco   linguist-vendored
