@@ -85,7 +85,12 @@ fi
 
 WHEEL_FILE=$(find "$REPO_ROOT/wheel" -name "torch-*.whl" 2>/dev/null | head -1 || true)
 if [ -z "$WHEEL_FILE" ]; then
-    die "No PyTorch wheel found in $REPO_ROOT/wheel/"
+    info "PyTorch wheel not found. Downloading..."
+    "$REPO_ROOT/scripts/download_wheel.sh"
+    WHEEL_FILE=$(find "$REPO_ROOT/wheel" -name "torch-*.whl" 2>/dev/null | head -1 || true)
+    if [ -z "$WHEEL_FILE" ]; then
+        die "Wheel download failed. Cannot continue."
+    fi
 fi
 ok "Wheel found: $(basename "$WHEEL_FILE")"
 
