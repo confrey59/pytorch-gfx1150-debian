@@ -22,3 +22,6 @@ Thumbs.db
 *~
 # Large binary wheel (distributed via GitHub Releases)
 wheel/*.whl
+
+# Tensile kernels — downloaded separately, not redistributed
+kernels/rocblas_lib/

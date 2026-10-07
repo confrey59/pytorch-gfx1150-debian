@@ -56,18 +56,25 @@ Expected output: `cuda:0`
 
 ## Repository structure
 
+## Repository structure
+
 ```
 pytorch-gfx1150-debian/
 ├── README.md                  # This file
-├── wheel/                     # Pre-built PyTorch wheel
-├── kernels/                   # Tensile kernels for gfx1150
+├── wheel/                     # Pre-built PyTorch wheel (download separately, ~378 MB)
+├── kernels/                   # Tensile kernels (downloaded by install.sh)
 ├── scripts/
 │   ├── install.sh             # Main installation script
+│   ├── download_kernels.sh    # Downloads Tensile kernels from upstream
 │   └── activate_rocm.sh       # Environment activation
 └── docs/
     ├── ROCm_gfx1150_PyTorch_EN.md   # Full documentation (English)
     └── Context_ROCm_gfx1150_PyTorch_V1.md  # Original (Italian)
 ```
+
+**Note on redistribution**: the PyTorch wheel (~378 MB) and the Tensile kernels are **not stored in this Git repository**:
+- The wheel exceeds GitHub's 100 MB per-file limit and is published via **GitHub Releases**.
+- The Tensile kernels come from a third-party repository with no explicit license and are **downloaded automatically** by `scripts/download_kernels.sh`.
 
 ## What's in the wheel
 

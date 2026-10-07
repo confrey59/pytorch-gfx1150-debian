@@ -89,8 +89,9 @@ if [ -z "$WHEEL_FILE" ]; then
 fi
 ok "Wheel found: $(basename "$WHEEL_FILE")"
 
-if [ ! -d "$REPO_ROOT/kernels/rocblas_lib" ]; then
-    die "Tensile kernels not found in $REPO_ROOT/kernels/rocblas_lib/"
+if [ ! -f "$REPO_ROOT/kernels/rocblas_lib/TensileLibrary_lazy_gfx1150.dat" ]; then
+    info "Tensile kernels missing. Downloading..."
+    "$REPO_ROOT/scripts/download_kernels.sh"
 fi
 ok "Tensile kernels present"
 
