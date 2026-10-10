@@ -15,7 +15,8 @@ export HIP_FORCE_DEV_KERNARG=1
 export TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1
 
 # --- Local Tensile kernels (portable, inside the project) ---------------
-export ROCBLAS_TENSILE_LIBPATH=/media/dati/Programmi/AI/pytorch-gfx1150-build/.rocm_kernels/rocblas_lib
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export ROCBLAS_TENSILE_LIBPATH="${SCRIPT_DIR}/../kernels/rocblas_lib"
 
 # Note: TORCH_BLAS_PREFER_HIPBLASLT is intentionally NOT set.
 # The local hipBLASLt kernels are incomplete for gfx1150; rocBLAS works.
